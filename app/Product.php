@@ -9,8 +9,10 @@ class Product extends Model
 	//Not a part of the Product table, but relevent when placed in the cart.
 	public $quantity = 0;
 
-	public function productType()
+	//Get all the categories for this model.
+	public function categories()
 	{
-		return $this->hasOne('App\ProductType', 'id', 'type');
+		return $this->belongsToMany('App\Category', 'product_categories')
+			->withTimestamps();
 	}
 }
