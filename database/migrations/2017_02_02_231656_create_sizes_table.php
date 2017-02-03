@@ -18,6 +18,8 @@ class CreateSizesTable extends Migration
             $table->string('name');
             //Could be decimal, but should it be '14.00' or '14 inches'?
             $table->string('size');
+            //Base price for this size, not including extras.
+            $table->decimal('price', 12, 2);
             $table->timestamps();
         });
     }
